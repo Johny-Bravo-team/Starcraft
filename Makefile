@@ -89,3 +89,7 @@ clean:
 run: all
 	./$(OUTPUTMAIN)
 	@echo Executing 'run: all' complete!
+
+mem: all
+	valgrind ./$(OUTPUTMAIN) --leak-check=full
+	@echo Executing 'run: dev' complete!
