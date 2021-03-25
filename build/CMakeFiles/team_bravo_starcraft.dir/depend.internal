@@ -3,8 +3,11 @@
 
 CMakeFiles/team_bravo_starcraft.dir/src/BattleField.c.o
  ../include/BattleField.h
+ ../include/Defines.h
+ ../include/Ships.h
  ../include/Vector.h
  /home/issashu/Code Repos/Johny_Bravo/Starcraft/src/BattleField.c
+ /home/issashu/Code Repos/Johny_Bravo/Starcraft/src/Ships.c
 CMakeFiles/team_bravo_starcraft.dir/src/Vector.c.o
  ../include/Vector.h
  /home/issashu/Code Repos/Johny_Bravo/Starcraft/src/Vector.c

@@ -12,6 +12,10 @@ stdbool.h
 Vector.h
 ../include/Vector.h
 
+../include/Defines.h
+
+../include/Ships.h
+
 ../include/Vector.h
 stddef.h
 -
@@ -21,18 +25,16 @@ stdbool.h
 /home/issashu/Code Repos/Johny_Bravo/Starcraft/src/BattleField.c
 BattleField.h
 /home/issashu/Code Repos/Johny_Bravo/Starcraft/src/BattleField.h
-
-/home/issashu/Code Repos/Johny_Bravo/Starcraft/src/Vector.c
-stdlib.h
--
 Vector.h
 /home/issashu/Code Repos/Johny_Bravo/Starcraft/src/Vector.h
+Ships.c
+/home/issashu/Code Repos/Johny_Bravo/Starcraft/src/Ships.c
 
-/home/issashu/Code Repos/Johny_Bravo/Starcraft/src/main.c
+/home/issashu/Code Repos/Johny_Bravo/Starcraft/src/Ships.c
 stdio.h
 -
-stdlib.h
--
-BattleField.h
-/home/issashu/Code Repos/Johny_Bravo/Starcraft/src/BattleField.h
+Defines.h
+/home/issashu/Code Repos/Johny_Bravo/Starcraft/src/Defines.h
+Ships.h
+/home/issashu/Code Repos/Johny_Bravo/Starcraft/src/Ships.h
 

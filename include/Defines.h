@@ -2,22 +2,12 @@
 #define DEFINES_H_
 
 enum AirShipDefines {
-  BATTLE_CRUSER_HEALTH = 450,
-  BATTLE_BRUSER_DAMAGE = 40,
+  BATTLE_CRUISER_HEALTH = 450,
+  BATTLE_CRUISER_DAMAGE = 40,
 
   VIKING_HEALTH = 150,
   VIKING_DAMAGE = 15,
 
-  //MAX_HEALTH = (HEALTH+SHIELD);
-  /*
-  FOR CARRIER:
-  IF (MAX_HEALTH >=200){
-    NUMBER_INTERCEPTORS = 8;
-  }
-  ELSE{
-    NUMBER_INTERCEPTORS = 4;
-  }
-  */
   CARRIER_HEALTH = 200,
   CARRIER_SHIELD = 150,
   CARRIER_DAMAGE = 8,
@@ -30,7 +20,7 @@ enum AirShipDefines {
 };
 
 enum AirShipType {
-  BATTLE_CRUSER, VIKING, CARRIER, PHOENIX
+  BATTLE_CRUISER, VIKING, CARRIER, PHOENIX
 };
 
 enum CarrierDefines {
@@ -38,7 +28,7 @@ enum CarrierDefines {
   DAMAGED_STATUS_INTERCEPTORS = 4
 };
 
-enum BattleCruserDefines {
+enum BattleCruiserDefines {
   YAMATO_CANNON_LOADING_TURNS = 4
 };
 

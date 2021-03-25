@@ -1,4 +1,4 @@
-#include <stdio.h>
+/*#include <stdio.h>
 #include <stdlib.h>
 #include <errno.h>
 
@@ -15,5 +15,5 @@ FILE* FileLoader(FILE *FPointer, char* FileName){
     else{
         return FPointer;
     }
-}
+}*/
 

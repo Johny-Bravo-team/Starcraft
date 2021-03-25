@@ -4,13 +4,14 @@
 #include <stddef.h>
 #include <stdbool.h>
 
-typedef struct {
+typedef struct Vector{
   void **items;
   size_t capacity;
   size_t size;
 } Vector;
 
-void vectorInit(Vector *vec, size_t initialCapacity);
+//changed back to void - Dan4o
+void vectorInit(Vector *vec, int initialCapacity);
 size_t vectorGetSize(Vector *vec);
 bool vectorIsEmpty(Vector *vec);
 void vectorResize(Vector *vec, size_t newSize);

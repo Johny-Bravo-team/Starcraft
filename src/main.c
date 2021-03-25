@@ -1,3 +1,4 @@
+#pragma once
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -7,13 +8,13 @@ int main() {
   const int buffSize = 50;
   char terranFleet[buffSize];
   char protossFleet[buffSize];
-  scanf("%s %s", terranFleet, protossFleet);
+  scanf("%s %s", &terranFleet, &protossFleet);
 
   BattleField battleField;
   generateTerranFleet(&battleField, terranFleet);
   generateProtossFleet(&battleField, protossFleet);
-  startBattle(&battleField);
-  deinit(&battleField);
+ /* startBattle(&battleField);
+ /* deinit(&battleField);*/
 
   return EXIT_SUCCESS;
 }
