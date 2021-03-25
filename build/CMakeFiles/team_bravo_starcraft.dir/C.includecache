@@ -1,0 +1,38 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../include/BattleField.h
+stdbool.h
+-
+Vector.h
+../include/Vector.h
+
+../include/Vector.h
+stddef.h
+-
+stdbool.h
+-
+
+/home/issashu/Code Repos/Johny_Bravo/Starcraft/src/BattleField.c
+BattleField.h
+/home/issashu/Code Repos/Johny_Bravo/Starcraft/src/BattleField.h
+
+/home/issashu/Code Repos/Johny_Bravo/Starcraft/src/Vector.c
+stdlib.h
+-
+Vector.h
+/home/issashu/Code Repos/Johny_Bravo/Starcraft/src/Vector.h
+
+/home/issashu/Code Repos/Johny_Bravo/Starcraft/src/main.c
+stdio.h
+-
+stdlib.h
+-
+BattleField.h
+/home/issashu/Code Repos/Johny_Bravo/Starcraft/src/BattleField.h
+

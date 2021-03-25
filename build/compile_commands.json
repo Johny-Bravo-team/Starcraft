@@ -1,0 +1,17 @@
+[
+{
+  "directory": "/home/issashu/Code Repos/Johny_Bravo/Starcraft/build",
+  "command": "/usr/bin/gcc  -I\"/home/issashu/Code Repos/Johny_Bravo/Starcraft/include\" -g -Wall -Wextra -Werror -Wundef -Wuninitialized -Wshadow -Wpointer-arith -Wcast-align -Wcast-qual -Wunused-parameter -Wlogical-op -Wdouble-promotion -Wduplicated-cond -Wduplicated-branches -Wnull-dereference -std=c11 -o CMakeFiles/team_bravo_starcraft.dir/src/main.c.o -c \"/home/issashu/Code Repos/Johny_Bravo/Starcraft/src/main.c\"",
+  "file": "/home/issashu/Code Repos/Johny_Bravo/Starcraft/src/main.c"
+},
+{
+  "directory": "/home/issashu/Code Repos/Johny_Bravo/Starcraft/build",
+  "command": "/usr/bin/gcc  -I\"/home/issashu/Code Repos/Johny_Bravo/Starcraft/include\" -g -Wall -Wextra -Werror -Wundef -Wuninitialized -Wshadow -Wpointer-arith -Wcast-align -Wcast-qual -Wunused-parameter -Wlogical-op -Wdouble-promotion -Wduplicated-cond -Wduplicated-branches -Wnull-dereference -std=c11 -o CMakeFiles/team_bravo_starcraft.dir/src/Vector.c.o -c \"/home/issashu/Code Repos/Johny_Bravo/Starcraft/src/Vector.c\"",
+  "file": "/home/issashu/Code Repos/Johny_Bravo/Starcraft/src/Vector.c"
+},
+{
+  "directory": "/home/issashu/Code Repos/Johny_Bravo/Starcraft/build",
+  "command": "/usr/bin/gcc  -I\"/home/issashu/Code Repos/Johny_Bravo/Starcraft/include\" -g -Wall -Wextra -Werror -Wundef -Wuninitialized -Wshadow -Wpointer-arith -Wcast-align -Wcast-qual -Wunused-parameter -Wlogical-op -Wdouble-promotion -Wduplicated-cond -Wduplicated-branches -Wnull-dereference -std=c11 -o CMakeFiles/team_bravo_starcraft.dir/src/BattleField.c.o -c \"/home/issashu/Code Repos/Johny_Bravo/Starcraft/src/BattleField.c\"",
+  "file": "/home/issashu/Code Repos/Johny_Bravo/Starcraft/src/BattleField.c"
+}
+]
