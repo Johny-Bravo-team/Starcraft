@@ -1,8 +1,9 @@
 #pragma once
 #include <stdio.h>
 #include <stdlib.h>
-
+#include "Ships.h"
 #include "BattleField.h"
+#include "Vector.h"
 
 int main() {
   const int buffSize = 50;
@@ -13,6 +14,7 @@ int main() {
   BattleField battleField;
   generateTerranFleet(&battleField, terranFleet);
   generateProtossFleet(&battleField, protossFleet);
+  CalculateDamage(&battleField.terranFleet,&battleField.protossFleet,1,1);
  /* startBattle(&battleField);
  /* deinit(&battleField);*/
 

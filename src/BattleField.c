@@ -6,7 +6,7 @@
 
 void generateTerranFleet(BattleField *battleField, const char *terranFleetStr)
 {
-  vectorInit(&battleField->terranFleet,1);
+  vectorInit(&battleField->terranFleet, 1); /*leek-ва*/
 
   for (int i = 0; i < strlen(terranFleetStr); i++)
   {
@@ -20,22 +20,18 @@ void generateTerranFleet(BattleField *battleField, const char *terranFleetStr)
     }
   }
 
-  for (int i = 0; i < strlen(terranFleetStr); i++){
-    printf("%lu",vectorGetSize(&battleField->terranFleet));
-  }
-/*
+  
+  /*
 for (int i = 0; i < strlen(terranFleetStr); i++){
-vectorGet(terranFleet, size_t idx
+printf ("%s", vectorGet(terranFleet, i);
 }
 */
-
-
 }
 
 void generateProtossFleet(BattleField *battleField, const char *protossFleetStr)
 {
 
- vectorInit(&battleField->protossFleet,1);
+  vectorInit(&battleField->protossFleet, 1); /*leek-ва*/
 
   for (int i = 0; i < strlen(protossFleetStr); i++)
   {

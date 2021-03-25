@@ -3,7 +3,6 @@
 #include "Ships.h"
 #include "Vector.h"
 
-
 Protoss_ship Phoenix = {"Phoenix", PHOENIX_HEALTH, PHOENIX_SHIELD, PHOENIX_DAMAGE};
 Protoss_ship Carrier = {"Carrier", CARRIER_HEALTH, CARRIER_SHIELD, CARRIER_DAMAGE};
 
@@ -20,34 +19,46 @@ Terran_ship BattleCruiser = {"Battlecruiser", BATTLE_CRUISER_HEALTH, BATTLE_CRUI
  * @return int - Returns the damage number
  */
 
-/*int CalculateDamage(Vector *Attacker, Vector *Defender, int index, int turn){
-    Ship Attacking_Ship = vectorGet(Attacker, index);
-    Ship Defending_Ship = vectorGet(Defender, index);      
-  
-    if (Attacking_Ship == Viking){
-        if(Defending_Ship == Phoenix){
+int CalculateDamage(Vector *Attacker, Vector *Defender, int index, int turn)
+{
+    Ship *Attacking_Ship = malloc(sizeof(Ship *));
+    Ship *Defending_Ship = malloc(sizeof(Ship *));
+    Attacking_Ship = vectorGet(Attacker, index);
+    Defending_Ship = vectorGet(Defender, index);
+
+    if (Attacking_Ship->name == "Viking")
+    {
+        if (Defending_Ship->name == Phoenix.name)
+        {
+            printf("V vs P");
             return (VIKING_DAMAGE * 2);
-        } else {
+        }
+        else
+        {
+            printf("V vs Any");
             return (VIKING_DAMAGE);
         }
     };
 
-    if (Attacking_Ship == BattleCruiser){
-        if (!(turn%5)){
+    if (Attacking_Ship->name == "BattleCruiser")
+    {
+        if (!(turn % 5))
+        {
+            printf("msmdhf");
             return (BATTLE_CRUISER_DAMAGE * 5);
-        } else {
+        }
+        else
+        {
+            printf("msmdhf");
             return (BATTLE_CRUISER_DAMAGE);
         }
     };
 
-    if (Attacking_Ship == Phoenix){
+    /*if (Attacking_Ship->name == Phoenix){
         return (PHOENIX_DAMAGE);
     };
 
     if (Attacking_Ship == Carrier){
         return CARRIER_DAMAGE;
-    };
-
+    };*/
 }
-
-*/
