@@ -12,7 +12,6 @@ void vectorInit(Vector *vec, int initialCapacity)
   vec->capacity = 1;
   vec->size = 0;
   vec->items = malloc(sizeof(void *) * vec->capacity);
-  
 }
 
 /**

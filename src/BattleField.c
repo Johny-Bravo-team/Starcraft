@@ -6,8 +6,8 @@
 
 void generateTerranFleet(BattleField *battleField, const char *terranFleetStr)
 {
-  Vector *Terran = (Vector *)malloc(sizeof(Vector));
-  vectorInit(Terran, 1);
+  vectorInit(&battleField->terranFleet,1);
+
   for (int i = 0; i < strlen(terranFleetStr); i++)
   {
     if (terranFleetStr[i] == 'v')
@@ -19,12 +19,23 @@ void generateTerranFleet(BattleField *battleField, const char *terranFleetStr)
       vectorPush(&battleField->terranFleet, &BattleCruiser);
     }
   }
+
+  for (int i = 0; i < strlen(terranFleetStr); i++){
+    printf("%lu",vectorGetSize(&battleField->terranFleet));
+  }
+/*
+for (int i = 0; i < strlen(terranFleetStr); i++){
+vectorGet(terranFleet, size_t idx
+}
+*/
+
+
 }
 
 void generateProtossFleet(BattleField *battleField, const char *protossFleetStr)
 {
 
-  Vector *protoss = malloc(sizeof(Vector));
+ vectorInit(&battleField->protossFleet,1);
 
   for (int i = 0; i < strlen(protossFleetStr); i++)
   {
