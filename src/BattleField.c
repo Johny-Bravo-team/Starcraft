@@ -3,28 +3,22 @@
 #include "BattleField.h"
 #include "Vector.h"
 #include "Ships.h"
-/*
-Battlefield -> terranFleet -> &items[i] = Terran_ship;
-Battlefield -> protossFleet -> &items[i] = Protoss_ship;
-*/
-
 
 void generateTerranFleet(BattleField *battleField, const char *terranFleetStr)
 {
-  Vector *Terran = (Vector*) malloc (sizeof(Vector));
+  Vector *Terran = (Vector *)malloc(sizeof(Vector));
   vectorInit(Terran, 1);
   for (int i = 0; i < strlen(terranFleetStr); i++)
   {
     if (terranFleetStr[i] == 'v')
     {
-      vectorPush(Terran, &Viking);
+      vectorPush(&battleField->terranFleet, &Viking);
     }
     if (terranFleetStr[i] == 'b')
     {
-      vectorPush(Terran, &BattleCruiser);
+      vectorPush(&battleField->terranFleet, &BattleCruiser);
     }
   }
-  printf("%lu", vectorGetSize(Terran));
 }
 
 void generateProtossFleet(BattleField *battleField, const char *protossFleetStr)
@@ -36,15 +30,13 @@ void generateProtossFleet(BattleField *battleField, const char *protossFleetStr)
   {
     if (protossFleetStr[i] == 'p')
 
-      vectorPush(protoss, &Phoenix);
+      vectorPush(&battleField->protossFleet, &Phoenix);
 
     if (protossFleetStr[i] == 'c')
     {
-      vectorPush(protoss, &Carrier);
+      vectorPush(&battleField->protossFleet, &Carrier);
     }
   }
-
-  printf("%lu", vectorGetSize(protoss));
 }
 
 /*void startBattle(BattleField *battleField)
