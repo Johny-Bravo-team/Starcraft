@@ -6,7 +6,7 @@
 
 void generateTerranFleet(BattleField *battleField, const char *terranFleetStr)
 {
-  vectorInit(&battleField->terranFleet, 1); /*leek-ва*/
+  vectorInit(&battleField->terranFleet, 1);//change the one to variable
 
   for (int i = 0; i < strlen(terranFleetStr); i++)
   {

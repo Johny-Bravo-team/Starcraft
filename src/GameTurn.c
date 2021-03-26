@@ -72,10 +72,11 @@ void Attack(Vector *Attacker, Vector *Defender, int index, int turn)
 
 void TakeTurn(Vector *Attacker, Vector *Defender)
 {
-    static int TurnCounter = 0;
-    ProgressTurn(TurnCounter);
+    static int TurnCounter = 1;
+    RechargeShield(Attacker);
     for (int i = 0; i < vectorGetSize(Attacker); i++)
     {
         Attack(Attacker, Defender, i, TurnCounter);
     }
+    TurnCounter++;
 }
