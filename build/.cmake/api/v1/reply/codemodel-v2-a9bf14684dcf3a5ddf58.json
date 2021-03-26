@@ -38,7 +38,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "team_bravo_starcraft::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-team_bravo_starcraft-Debug-1c6a5540102d9749e915.json",
+					"jsonFile" : "target-team_bravo_starcraft-Debug-e8a6bad3dcd706537d72.json",
 					"name" : "team_bravo_starcraft",
 					"projectIndex" : 0
 				}
@@ -48,12 +48,12 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "/home/issashu/Code Repos/Johny_Bravo/Starcraft/build",
-		"source" : "/home/issashu/Code Repos/Johny_Bravo/Starcraft"
+		"build" : "F:/CodeRepos/JohnyBravo_Strypes/Starcraft/build",
+		"source" : "F:/CodeRepos/JohnyBravo_Strypes/Starcraft"
 	},
 	"version" : 
 	{
 		"major" : 2,
-		"minor" : 2
+		"minor" : 1
 	}
 }

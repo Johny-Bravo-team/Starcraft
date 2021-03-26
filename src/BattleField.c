@@ -53,14 +53,6 @@ void startBattle(BattleField *battleField)
   {
     TakeTurn(&battleField->terranFleet, &battleField->protossFleet);
     Ship *Protoss = vectorGetLast(&battleField->protossFleet);
-    
-    for (int i = 0; i < vectorGetSize(&battleField->protossFleet); i++){
-      
-      RechargeShield((*battleField).protossFleet[i]);
-    }
-    
-
-
     printf("Last Protoss AirShip with ID: %d has %d health and %d shield left\n", vectorGetSize(&battleField->protossFleet)-1, Protoss->health, Protoss->shield);
     if (vectorIsEmpty(&battleField->protossFleet))
     {

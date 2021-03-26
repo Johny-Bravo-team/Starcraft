@@ -4,9 +4,9 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "/home/issashu/Code Repos/Johny_Bravo/Starcraft/src/BattleField.c" "/home/issashu/Code Repos/Johny_Bravo/Starcraft/build/CMakeFiles/team_bravo_starcraft.dir/src/BattleField.c.o"
-  "/home/issashu/Code Repos/Johny_Bravo/Starcraft/src/Vector.c" "/home/issashu/Code Repos/Johny_Bravo/Starcraft/build/CMakeFiles/team_bravo_starcraft.dir/src/Vector.c.o"
-  "/home/issashu/Code Repos/Johny_Bravo/Starcraft/src/main.c" "/home/issashu/Code Repos/Johny_Bravo/Starcraft/build/CMakeFiles/team_bravo_starcraft.dir/src/main.c.o"
+  "F:/CodeRepos/JohnyBravo_Strypes/Starcraft/src/BattleField.c" "F:/CodeRepos/JohnyBravo_Strypes/Starcraft/build/CMakeFiles/team_bravo_starcraft.dir/src/BattleField.c.obj"
+  "F:/CodeRepos/JohnyBravo_Strypes/Starcraft/src/Vector.c" "F:/CodeRepos/JohnyBravo_Strypes/Starcraft/build/CMakeFiles/team_bravo_starcraft.dir/src/Vector.c.obj"
+  "F:/CodeRepos/JohnyBravo_Strypes/Starcraft/src/main.c" "F:/CodeRepos/JohnyBravo_Strypes/Starcraft/build/CMakeFiles/team_bravo_starcraft.dir/src/main.c.obj"
   )
 set(CMAKE_C_COMPILER_ID "GNU")
 
