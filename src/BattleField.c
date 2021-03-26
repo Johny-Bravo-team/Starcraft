@@ -16,7 +16,7 @@ void generateTerranFleet(BattleField *battleField, const char *terranFleetStr)
     }
     if (terranFleetStr[i] == 'b')
     {
-      vectorPush(&battleField->terranFleet, &BattleCruiser);
+      vectorPush(&battleField->terranFleet, &BattleCruiser); 
     }
   }
 
