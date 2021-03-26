@@ -1,13 +1,13 @@
-#ifndef PROTOSS_FLEET_H
-#define PROTOSS_FLEET_H
+#ifndef SHIPS_H
+#define SHIPS_H
 #include "Vector.h"
 
 typedef struct
 {
     char *name;
     int health;
-    int shield;
     int damage;
+    int shield;
 } Protoss_ship;
 
 typedef struct
@@ -22,13 +22,19 @@ typedef struct
 {
     char *name;
     int health;
-    int shield;
     int damage;
+    int shield;
 } Ship;
 
 extern Protoss_ship Phoenix;
 extern Protoss_ship Carrier;
 extern Terran_ship Viking;
 extern Terran_ship BattleCruiser;
+
 int CalculateDamage(Vector *Attacker, Vector *Defender, int index, int turn);
-#endif /*PROTOSS_FLEET_H*/
+void ShipInit(char shipLetter);
+Terran_ship *AllocTerransShip(void);
+Protoss_ship *AllocProttosShip(void);
+void RechargeShield(Vector *Defender);
+
+#endif /*SHIPS_H*/

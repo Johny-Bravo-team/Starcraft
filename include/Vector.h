@@ -22,5 +22,6 @@ void* vectorBack(Vector *vec);
 void vectorDelete(Vector *vec, size_t idx);
 void vectorPop(Vector *vec);
 void vectorFree(Vector *vec);
+void *vectorGetLast(Vector *vec);
 
 #endif /* VECTOR_H_ */

@@ -5,7 +5,8 @@
 #include "BattleField.h"
 #include "Vector.h"
 
-int main() {
+int main()
+{
   const int buffSize = 50;
   char terranFleet[buffSize];
   char protossFleet[buffSize];
@@ -14,9 +15,9 @@ int main() {
   BattleField battleField;
   generateTerranFleet(&battleField, terranFleet);
   generateProtossFleet(&battleField, protossFleet);
-  CalculateDamage(&battleField.terranFleet,&battleField.protossFleet,1,1);
- /* startBattle(&battleField);
- /* deinit(&battleField);*/
+  //CalculateDamage(&battleField.terranFleet, &battleField.protossFleet, 1, 1);
+  startBattle(&battleField);
+  deinit(&battleField);
 
   return EXIT_SUCCESS;
 }
