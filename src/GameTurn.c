@@ -50,7 +50,7 @@ void Attack(Vector *Attacker, Vector *Defender, int index, int turn)
 {
     int Damage = 0;
     Ship *Attacking_Ship = vectorGet(Attacker, index);
-    Ship *Defending_Ship = vectorGetLast(Defender);
+    Ship *Defending_Ship = vectorBack(Defender);
     Damage = CalculateDamage(Attacker, Defender, index, turn);
     if (!strcmp((*Attacking_Ship).name, "Phoenix") || !strcmp((*Attacking_Ship).name, "Carrier"))
     {

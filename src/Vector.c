@@ -105,7 +105,7 @@ void *vectorGet(Vector *vec, size_t idx)
 }
 
 /**
- * @brief moves one element back
+ * @brief Gets last element
  * 
  * @param vec pointer to struct from type vector
  * @return return void pointer if it's empty
