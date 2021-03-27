@@ -49,6 +49,7 @@ void startBattle(BattleField *battleField)
 
     if (vectorIsEmpty(&battleField->terranFleet))
     {
+
       printf("PROTOSS has won!\n");
       break;
     }
@@ -59,6 +60,16 @@ void startBattle(BattleField *battleField)
 }
 
 void deinit(BattleField *battleField){
+  while(vectorBack(&battleField->terranFleet)!=NULL){
+    free(vectorBack(&battleField->terranFleet));
+    vectorPop(&battleField->terranFleet);
+  }
+
+  while(vectorBack(&battleField->protossFleet)!=NULL){
+    free(vectorBack(&battleField->protossFleet));
+    vectorPop(&battleField->protossFleet);
+  }
+
   vectorFree(&battleField->protossFleet);
   vectorFree(&battleField->terranFleet);
 }

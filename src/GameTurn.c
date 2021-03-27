@@ -53,6 +53,7 @@ void Attack(Vector *Attacker, Vector *Defender, int index, int turn){
     if (!strcmp((*Attacking_Ship).name, "Carrier") && (*Attacking_Ship).health == CARRIER_HEALTH){
         for (int i = 1; i <= MAX_INTERCEPTORS; i++) {
             if (Defending_Ship->health <= 0) {
+                free(Defending_Ship);
                 printf("%s with ID: %d killed enemy airship with ID: %d\n", Attacking_Ship->name, index, vectorGetSize(Defender) - 1);
                 vectorDelete(Defender, vectorGetSize(Defender) - 1);
                 if (vectorGetSize(Defender) == 0){
@@ -66,6 +67,7 @@ void Attack(Vector *Attacker, Vector *Defender, int index, int turn){
     else if (!strcmp((*Attacking_Ship).name, "Carrier") && (*Attacking_Ship).health < CARRIER_HEALTH) {
         for (int i = 1; i <= DAMAGED_STATUS_INTERCEPTORS; i++) {
             if (Defending_Ship->health <= 0) {
+                free(Defending_Ship);
                 printf("%s with ID: %d killed enemy airship with ID: %d\n", Attacking_Ship->name, index, vectorGetSize(Defender) - 1);
                 vectorDelete(Defender, vectorGetSize(Defender) - 1);
                 if (vectorGetSize(Defender) == 0){
@@ -84,6 +86,7 @@ void Attack(Vector *Attacker, Vector *Defender, int index, int turn){
     }
 
     if (Defending_Ship->health <= 0){
+        free(Defending_Ship);
         vectorDelete(Defender, vectorGetSize(Defender) - 1);
         printf("%s with ID: %d killed enemy airship with ID: %d\n", Attacking_Ship->name, index, vectorGetSize(Defender));
         return;
