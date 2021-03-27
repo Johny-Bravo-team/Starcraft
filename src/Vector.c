@@ -51,6 +51,7 @@ void vectorResize(Vector *vec, size_t capacity)
     vec->items = items;
     vec->capacity = capacity;
   }
+
   if (vec->size >= capacity)
   {
     vec->size = capacity;
@@ -176,5 +177,5 @@ void vectorFree(Vector *vec)
 }
 void *vectorGetLast(Vector *vec)
 {
-  return vec->items[vectorGetSize(vec)-1];
+  return vec->items[vectorGetSize(vec) - 1];
 }

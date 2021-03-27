@@ -1,13 +1,15 @@
 #include <string.h>
+#include <stdlib.h>
 #include <stdio.h>
+#include <stdbool.h>
 #include "BattleField.h"
 #include "Vector.h"
 #include "Ships.h"
 #include "GameTurn.h"
 
-void generateTerranFleet(BattleField *battleField, const char *terranFleetStr)
+void generateTerranFleet(BattleField *battleField, const char *terranFleetStr, int initialCapacity)
 {
-  vectorInit(&battleField->terranFleet, 1); //change the one to variable
+  vectorInit(&battleField->terranFleet, initialCapacity);
 
   for (size_t i = 0; i < strlen(terranFleetStr); i++)
   {
@@ -15,10 +17,10 @@ void generateTerranFleet(BattleField *battleField, const char *terranFleetStr)
   }
 }
 
-void generateProtossFleet(BattleField *battleField, const char *protossFleetStr)
+void generateProtossFleet(BattleField *battleField, const char *protossFleetStr, int initialCapacity)
 {
 
-  vectorInit(&battleField->protossFleet, 1); /*leek-ва*/
+  vectorInit(&battleField->protossFleet, initialCapacity);
 
   for (size_t i = 0; i < strlen(protossFleetStr); i++)
   {
@@ -29,10 +31,12 @@ void generateProtossFleet(BattleField *battleField, const char *protossFleetStr)
 void startBattle(BattleField *battleField)
 {
   int TurnCounter = 1;
+
   while (true)
   {
     TakeTurn(&battleField->terranFleet, &battleField->protossFleet, TurnCounter);
-    Ship *Protoss = vectorGetLast(&battleField->protossFleet);
+    Ship *Protoss = vectorBack(&battleField->protossFleet);
+
     if (vectorIsEmpty(&battleField->protossFleet))
     {
       printf("TERRAN has won!\n");
@@ -41,7 +45,8 @@ void startBattle(BattleField *battleField)
     printf("Last Protoss AirShip with ID: %d has %d health and %d shield left\n", vectorGetSize(&battleField->protossFleet) - 1, Protoss->health, Protoss->shield);
 
     TakeTurn(&battleField->protossFleet, &battleField->terranFleet, TurnCounter);
-    Ship *Terran = vectorGetLast(&battleField->terranFleet);
+    Ship *Terran = vectorBack(&battleField->terranFleet);
+
     if (vectorIsEmpty(&battleField->terranFleet))
     {
       printf("PROTOSS has won!\n");
@@ -53,8 +58,7 @@ void startBattle(BattleField *battleField)
   }
 }
 
-void deinit(BattleField *battleField)
-{
+void deinit(BattleField *battleField){
   vectorFree(&battleField->protossFleet);
   vectorFree(&battleField->terranFleet);
 }
