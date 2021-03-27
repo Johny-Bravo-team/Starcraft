@@ -48,40 +48,50 @@ Terran_ship *AllocTerransShip(void)
     return shipPtr;
 }
 
-void ShipInit(char shipLetter)
+Protoss_ship *ShipInitProtoss(char shipLetter)
 {
+    Protoss_ship *shipPtr = NULL;
+    
     if (shipLetter == 'p')
     { /*phoenix protoss*/
-        Phoenix.name = "Phoenix";
-        Phoenix.health = PHOENIX_HEALTH;
-        Phoenix.shield = PHOENIX_SHIELD;
-        Phoenix.damage = PHOENIX_DAMAGE;
-        return AllocProttosShip();
+        shipPtr = AllocProttosShip();
+        shipPtr->name = "Phoenix";
+        shipPtr->health = PHOENIX_HEALTH;
+        shipPtr->shield = PHOENIX_SHIELD;
+        shipPtr->damage = PHOENIX_DAMAGE;
+        return shipPtr;
     }
 
     if (shipLetter == 'c')
     { /*carrier protoss*/
-        Carrier.name = "Carrier";
-        Carrier.health = CARRIER_HEALTH;
-        Carrier.shield = CARRIER_SHIELD;
-        Carrier.damage = CARRIER_DAMAGE;
-        return &Carrier;
+        shipPtr = AllocProttosShip();
+        shipPtr->name = "Carrier";
+        shipPtr->health = CARRIER_HEALTH;
+        shipPtr->shield = CARRIER_SHIELD;
+        shipPtr->damage = CARRIER_DAMAGE;
+        return shipPtr;
     }
+}
+Terran_ship *ShipInitTerran(char shipLetter)
+{
+    Terran_ship *shipPtr = NULL;
 
     if (shipLetter == 'v')
     { /*viking from Terran*/
-        Viking.name = "Viking";
-        Viking.health = VIKING_HEALTH;
-        Viking.damage = VIKING_DAMAGE;
-        return &Viking;
+        shipPtr = AllocProttosShip();
+        shipPtr->name = "Viking";
+        shipPtr->health = VIKING_HEALTH;
+        shipPtr->damage = VIKING_DAMAGE;
+        return shipPtr;
     }
 
     if (shipLetter == 'b') /*BattleCruiser from Terran*/
     {
-        BattleCruiser.name = "BattleCruiser";
-        BattleCruiser.health = BATTLE_CRUISER_HEALTH;
-        BattleCruiser.damage = BATTLE_CRUISER_DAMAGE;
-        return &BattleCruiser;
+        shipPtr = AllocProttosShip();
+        shipPtr->name = "BattleCruiser";
+        shipPtr->health = BATTLE_CRUISER_HEALTH;
+        shipPtr->damage = BATTLE_CRUISER_DAMAGE;
+        return shipPtr;
     }
 }
 
@@ -90,11 +100,11 @@ int CalculateDamage(Vector *Attacker, Vector *Defender, int index, int turn)
     Ship *Attacking_Ship = (Ship *)malloc(sizeof(Ship));
     Ship *Defending_Ship = (Ship *)malloc(sizeof(Ship));
     Attacking_Ship = vectorGet(Attacker, index);
-    Defending_Ship = vectorGet(Defender, index);
+    Defending_Ship = vectorBack(Defender);
 
     if (Attacking_Ship->name == "Viking")
     {
-        if (Defending_Ship->name == Phoenix.name)
+        if (Defending_Ship->name == "Phoenix")
         {
             return (VIKING_DAMAGE * 2);
         }
@@ -130,12 +140,20 @@ int CalculateDamage(Vector *Attacker, Vector *Defender, int index, int turn)
 void RechargeShield(Vector *Defender)
 {
     Ship *Ship = vectorBack(Defender);
-    if (!strcmp(Ship->name, "Phoenix") && Ship->shield < PHOENIX_SHIELD)
-    {
+    if (!strcmp(Ship->name, "Phoenix"))
+    {   
         Ship->shield += PHOENIX_SHIELD_REGENERATE_RATE;
+        if(Ship->shield > PHOENIX_SHIELD)
+        {
+            Ship->shield = PHOENIX_SHIELD;
+        }
     }
-    else if (!strcmp(Ship->name, "Carrier") && Ship->shield < PHOENIX_SHIELD)
+    else if (!strcmp(Ship->name, "Carrier") && Ship->shield < CARRIER_SHIELD)
     {
         Ship->shield += CARRIER_SHIELD_REGENERATE_RATE;
+        if(Ship->shield > CARRIER_SHIELD)
+        {
+            Ship->shield = CARRIER_SHIELD;
+        }
     }
 }

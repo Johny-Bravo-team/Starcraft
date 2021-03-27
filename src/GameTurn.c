@@ -64,7 +64,6 @@ void Attack(Vector *Attacker, Vector *Defender, int index, int turn)
     /*Leak possible - call Mario & Luigy*/
     if (Defending_Ship->health <= 0)
     {
-
         vectorDelete(Defender, vectorGetSize(Defender)-1);
         printf("%s with ID: %d killed enemy airship with ID: %d\n", Attacking_Ship->name, index, vectorGetSize(Defender));
         return;

@@ -36,5 +36,7 @@ void ShipInit(char shipLetter);
 Terran_ship *AllocTerransShip(void);
 Protoss_ship *AllocProttosShip(void);
 void RechargeShield(Vector *Defender);
+Terran_ship *ShipInitTerran(char shipLetter);
+Protoss_ship *ShipInitProtoss(char shipLetter);
 
 #endif /*SHIPS_H*/
