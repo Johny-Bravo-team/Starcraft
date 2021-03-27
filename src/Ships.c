@@ -143,21 +143,21 @@ int CalculateDamage(Vector *Attacker, Vector *Defender, int index, int turn)
 
 void RechargeShield(Vector *Defender)
 {
-    Ship *Ship = vectorBack(Defender);
-    if (!strcmp(Ship->name, "Phoenix"))
+    Ship *shipPtr = vectorBack(Defender);
+    if (!strcmp(shipPtr->name, "Phoenix"))
     {
-        Ship->shield += PHOENIX_SHIELD_REGENERATE_RATE;
-        if (Ship->shield > PHOENIX_SHIELD)
+        shipPtr->shield += PHOENIX_SHIELD_REGENERATE_RATE;
+        if (shipPtr->shield > PHOENIX_SHIELD)
         {
-            Ship->shield = PHOENIX_SHIELD;
+            shipPtr->shield = PHOENIX_SHIELD;
         }
     }
-    else if (!strcmp(Ship->name, "Carrier") && Ship->shield < CARRIER_SHIELD)
+    else if (!strcmp(shipPtr->name, "Carrier") && shipPtr->shield < CARRIER_SHIELD)
     {
-        Ship->shield += CARRIER_SHIELD_REGENERATE_RATE;
-        if (Ship->shield > CARRIER_SHIELD)
+        shipPtr->shield += CARRIER_SHIELD_REGENERATE_RATE;
+        if (shipPtr->shield > CARRIER_SHIELD)
         {
-            Ship->shield = CARRIER_SHIELD;
+            shipPtr->shield = CARRIER_SHIELD;
         }
     }
 }

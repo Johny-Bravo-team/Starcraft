@@ -5,6 +5,7 @@
 
 #include "Vector.h"
 
+
 typedef struct {
   Vector terranFleet;
   Vector protossFleet;
@@ -17,7 +18,5 @@ void startBattle(BattleField *battleField);
 
 void deinit(BattleField *battleField);
 
-bool processTerranTurn(BattleField *battleField);
-bool processProtossTurn(BattleField *battleField);
 
 #endif /* BATTLEFIELD_H_ */

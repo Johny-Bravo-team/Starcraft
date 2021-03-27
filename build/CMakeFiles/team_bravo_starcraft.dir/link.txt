@@ -1,3 +1,1 @@
-"C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E rm -f CMakeFiles\team_bravo_starcraft.dir/objects.a
-C:\PROGRA~1\MINGW-~1\mingw64\bin\ar.exe cr CMakeFiles\team_bravo_starcraft.dir/objects.a @CMakeFiles\team_bravo_starcraft.dir\objects1.rsp
-C:\PROGRA~1\MINGW-~1\mingw64\bin\gcc.exe -g -Wl,--whole-archive CMakeFiles\team_bravo_starcraft.dir/objects.a -Wl,--no-whole-archive -o team_bravo_starcraft.exe -Wl,--out-implib,libteam_bravo_starcraft.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\team_bravo_starcraft.dir\linklibs.rsp
+/bin/gcc-9 -g   CMakeFiles/team_bravo_starcraft.dir/src/main.c.o CMakeFiles/team_bravo_starcraft.dir/src/Vector.c.o CMakeFiles/team_bravo_starcraft.dir/src/BattleField.c.o CMakeFiles/team_bravo_starcraft.dir/src/Ships.c.o CMakeFiles/team_bravo_starcraft.dir/src/GameTurn.c.o  -o team_bravo_starcraft 

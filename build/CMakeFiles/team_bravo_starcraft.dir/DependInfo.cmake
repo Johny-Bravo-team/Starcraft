@@ -4,9 +4,11 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "F:/CodeRepos/JohnyBravo_Strypes/Starcraft/src/BattleField.c" "F:/CodeRepos/JohnyBravo_Strypes/Starcraft/build/CMakeFiles/team_bravo_starcraft.dir/src/BattleField.c.obj"
-  "F:/CodeRepos/JohnyBravo_Strypes/Starcraft/src/Vector.c" "F:/CodeRepos/JohnyBravo_Strypes/Starcraft/build/CMakeFiles/team_bravo_starcraft.dir/src/Vector.c.obj"
-  "F:/CodeRepos/JohnyBravo_Strypes/Starcraft/src/main.c" "F:/CodeRepos/JohnyBravo_Strypes/Starcraft/build/CMakeFiles/team_bravo_starcraft.dir/src/main.c.obj"
+  "/mnt/f/CodeRepos/JohnyBravo_Strypes/Starcraft/src/BattleField.c" "/mnt/f/CodeRepos/JohnyBravo_Strypes/Starcraft/build/CMakeFiles/team_bravo_starcraft.dir/src/BattleField.c.o"
+  "/mnt/f/CodeRepos/JohnyBravo_Strypes/Starcraft/src/GameTurn.c" "/mnt/f/CodeRepos/JohnyBravo_Strypes/Starcraft/build/CMakeFiles/team_bravo_starcraft.dir/src/GameTurn.c.o"
+  "/mnt/f/CodeRepos/JohnyBravo_Strypes/Starcraft/src/Ships.c" "/mnt/f/CodeRepos/JohnyBravo_Strypes/Starcraft/build/CMakeFiles/team_bravo_starcraft.dir/src/Ships.c.o"
+  "/mnt/f/CodeRepos/JohnyBravo_Strypes/Starcraft/src/Vector.c" "/mnt/f/CodeRepos/JohnyBravo_Strypes/Starcraft/build/CMakeFiles/team_bravo_starcraft.dir/src/Vector.c.o"
+  "/mnt/f/CodeRepos/JohnyBravo_Strypes/Starcraft/src/main.c" "/mnt/f/CodeRepos/JohnyBravo_Strypes/Starcraft/build/CMakeFiles/team_bravo_starcraft.dir/src/main.c.o"
   )
 set(CMAKE_C_COMPILER_ID "GNU")
 
