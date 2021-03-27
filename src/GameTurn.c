@@ -59,7 +59,7 @@ void Attack(Vector *Attacker, Vector *Defender, int index, int turn)
         {
             if (Defending_Ship->health <= 0)
             {
-                printf("%s with ID: %d killed enemy airship with ID: %ld\n", Attacking_Ship->name, index, vectorGetSize(Defender) - 1);
+                printf("%s with ID: %d killed enemy airship with ID: %d\n", Attacking_Ship->name, index, vectorGetSize(Defender) - 1);
                 vectorDelete(Defender, vectorGetSize(Defender) - 1);
                 if (vectorGetSize(Defender) == 0)
                 {
@@ -76,7 +76,7 @@ void Attack(Vector *Attacker, Vector *Defender, int index, int turn)
         {
             if (Defending_Ship->health <= 0)
             {
-                printf("%s with ID: %d killed enemy airship with ID: %ld\n", Attacking_Ship->name, index, vectorGetSize(Defender) - 1);
+                printf("%s with ID: %d killed enemy airship with ID: %d\n", Attacking_Ship->name, index, vectorGetSize(Defender) - 1);
                 vectorDelete(Defender, vectorGetSize(Defender) - 1);
                 if (vectorGetSize(Defender) == 0)
                 {
@@ -99,7 +99,7 @@ void Attack(Vector *Attacker, Vector *Defender, int index, int turn)
     if (Defending_Ship->health <= 0)
     {
         vectorDelete(Defender, vectorGetSize(Defender) - 1);
-        printf("%s with ID: %d killed enemy airship with ID: %ld\n", Attacking_Ship->name, index, vectorGetSize(Defender));
+        printf("%s with ID: %d killed enemy airship with ID: %d\n", Attacking_Ship->name, index, vectorGetSize(Defender));
         return;
     }
 }
@@ -107,7 +107,7 @@ void Attack(Vector *Attacker, Vector *Defender, int index, int turn)
 void TakeTurn(Vector *Attacker, Vector *Defender, int TurnCounter)
 {
     RechargeShield(Attacker);
-    for (size_t i = 0; i < vectorGetSize(Attacker); i++)
+    for (int i = 0; i < vectorGetSize(Attacker); i++)
     {
         if (vectorGetSize(Defender) == 0)
         {

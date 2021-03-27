@@ -12,7 +12,7 @@ typedef struct Vector{
 
 //changed back to void - Dan4o
 void vectorInit(Vector *vec, int initialCapacity);
-size_t vectorGetSize(Vector *vec);
+int vectorGetSize(Vector *vec);
 bool vectorIsEmpty(Vector *vec);
 void vectorResize(Vector *vec, size_t newSize);
 void vectorPush(Vector *vec, void *elem);

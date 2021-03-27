@@ -1,1 +1,0 @@
-/bin/gcc-9 -g   CMakeFiles/team_bravo_starcraft.dir/src/main.c.o CMakeFiles/team_bravo_starcraft.dir/src/Vector.c.o CMakeFiles/team_bravo_starcraft.dir/src/BattleField.c.o CMakeFiles/team_bravo_starcraft.dir/src/Ships.c.o CMakeFiles/team_bravo_starcraft.dir/src/GameTurn.c.o  -o team_bravo_starcraft 

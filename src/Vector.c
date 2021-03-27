@@ -20,7 +20,7 @@ void vectorInit(Vector *vec, int initialCapacity)
  * @param v pointer of type struct vector
  * @return returns curent number of elements
  */
-size_t vectorGetSize(Vector *v)
+int vectorGetSize(Vector *v)
 {
   return v->size;
 }

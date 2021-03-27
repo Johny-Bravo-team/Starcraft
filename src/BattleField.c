@@ -38,7 +38,7 @@ void startBattle(BattleField *battleField)
       printf("TERRAN has won!\n");
       break;
     }
-    printf("Last Protoss AirShip with ID: %ld has %d health and %d shield left\n", vectorGetSize(&battleField->protossFleet) - 1, Protoss->health, Protoss->shield);
+    printf("Last Protoss AirShip with ID: %d has %d health and %d shield left\n", vectorGetSize(&battleField->protossFleet) - 1, Protoss->health, Protoss->shield);
 
     TakeTurn(&battleField->protossFleet, &battleField->terranFleet, TurnCounter);
     Ship *Terran = vectorGetLast(&battleField->terranFleet);
@@ -47,7 +47,7 @@ void startBattle(BattleField *battleField)
       printf("PROTOSS has won!\n");
       break;
     }
-    printf("Last Terran AirShip with ID: %ld has %d health left\n", vectorGetSize(&battleField->terranFleet) - 1, Terran->health);
+    printf("Last Terran AirShip with ID: %d has %d health left\n", vectorGetSize(&battleField->terranFleet) - 1, Terran->health);
 
     TurnCounter++;
   }
