@@ -10,6 +10,7 @@ int main()
   const int buffSize = 50;
   char terranFleet[buffSize];
   char protossFleet[buffSize];
+  FILE * file = fopen("test.txt","a+");
   scanf("%s %s", &terranFleet, &protossFleet);
 
   BattleField battleField;

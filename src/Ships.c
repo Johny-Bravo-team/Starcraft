@@ -88,7 +88,7 @@ Terran_ship *ShipInitTerran(char shipLetter)
     if (shipLetter == 'b') /*BattleCruiser from Terran*/
     {
         shipPtr = AllocProttosShip();
-        shipPtr->name = "BattleCruiser";
+        shipPtr->name = "BattleCruser";
         shipPtr->health = BATTLE_CRUISER_HEALTH;
         shipPtr->damage = BATTLE_CRUISER_DAMAGE;
         return shipPtr;
@@ -114,9 +114,9 @@ int CalculateDamage(Vector *Attacker, Vector *Defender, int index, int turn)
         }
     };
 
-    if (Attacking_Ship->name == "BattleCruiser")
+    if (Attacking_Ship->name == "BattleCruser")
     {
-        if (!(turn % 5))
+        if (turn % YAMATO_CANNON_LOADING_TURNS == 0)
         {
             return (BATTLE_CRUISER_DAMAGE * 5);
         }

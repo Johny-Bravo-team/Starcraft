@@ -9,6 +9,6 @@ short ProgressTurn(short TurnCounter);
 void RechargeShield(Vector *Defender);
 void ProtossTakeDamage(Vector *Defender, int Damage);
 void TerranTakeDamage(Vector *Defender, int Damage);
-void TakeTurn(Vector *Attacker, Vector *Defender);
+void TakeTurn(Vector *Attacker, Vector *Defender, int TurnCounter);
 
 #endif /*GAMETURN_H*/

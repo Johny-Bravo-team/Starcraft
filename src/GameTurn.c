@@ -13,13 +13,10 @@
  * @param TurnCounter - Takes as parameter the variable holding the turn
  * @return short - Increments the variable and returns the new turn count
  */
-short ProgressTurn(short TurnCounter)
-{
-    return (TurnCounter++);
-}
 
 void ProtossTakeDamage(Vector *Defender, int Damage)
 {
+
     int TrueDamage = 0;
     Protoss_ship *DamagedShip = Defender;
     TrueDamage = Damage - DamagedShip->shield;
@@ -38,6 +35,10 @@ void ProtossTakeDamage(Vector *Defender, int Damage)
 
 void TerranTakeDamage(Vector *Defender, int Damage)
 {
+    if (Defender == NULL)
+    {
+        return;
+    }
     Terran_ship *DamagedShip = Defender;
     if (Damage < 0)
     {
@@ -52,36 +53,69 @@ void Attack(Vector *Attacker, Vector *Defender, int index, int turn)
     Ship *Attacking_Ship = vectorGet(Attacker, index);
     Ship *Defending_Ship = vectorBack(Defender);
     Damage = CalculateDamage(Attacker, Defender, index, turn);
-    if (!strcmp((*Attacking_Ship).name, "Phoenix") || !strcmp((*Attacking_Ship).name, "Carrier"))
+    if (!strcmp((*Attacking_Ship).name, "Carrier") && (*Attacking_Ship).health == CARRIER_HEALTH)
+    {
+        for (int i = 1; i <= MAX_INTERCEPTORS; i++)
+        {
+            if (Defending_Ship->health <= 0)
+            {
+                printf("%s with ID: %d killed enemy airship with ID: %d\n", Attacking_Ship->name, index, vectorGetSize(Defender) - 1);
+                vectorDelete(Defender, vectorGetSize(Defender) - 1);
+                if (vectorGetSize(Defender) == 0)
+                {
+                    return;
+                }
+            }
+            Defending_Ship = vectorBack(Defender);
+            TerranTakeDamage(Defending_Ship, Damage);
+        }
+    }
+    else if (!strcmp((*Attacking_Ship).name, "Carrier") && (*Attacking_Ship).health < CARRIER_HEALTH)
+    {
+        for (int i = 1; i <= DAMAGED_STATUS_INTERCEPTORS; i++)
+        {
+            if (Defending_Ship->health <= 0)
+            {
+                printf("%s with ID: %d killed enemy airship with ID: %d\n", Attacking_Ship->name, index, vectorGetSize(Defender) - 1);
+                vectorDelete(Defender, vectorGetSize(Defender) - 1);
+                if (vectorGetSize(Defender) == 0)
+                {
+                    return;
+                }
+            }
+            Defending_Ship = vectorBack(Defender);
+            TerranTakeDamage(Defending_Ship, Damage);
+        }
+    }
+    if (!strcmp((*Attacking_Ship).name, "Phoenix"))
     {
         TerranTakeDamage(Defending_Ship, Damage);
     }
-
-    if (!strcmp((*Attacking_Ship).name, "Viking") || !strcmp((*Attacking_Ship).name, "BattleCruiser"))
+    if (!strcmp((*Attacking_Ship).name, "Viking") || !strcmp((*Attacking_Ship).name, "BattleCruser"))
     {
         ProtossTakeDamage(Defending_Ship, Damage);
     }
     /*Leak possible - call Mario & Luigy*/
     if (Defending_Ship->health <= 0)
     {
-        vectorDelete(Defender, vectorGetSize(Defender)-1);
+        vectorDelete(Defender, vectorGetSize(Defender) - 1);
         printf("%s with ID: %d killed enemy airship with ID: %d\n", Attacking_Ship->name, index, vectorGetSize(Defender));
         return;
     }
 }
 
-void TakeTurn(Vector *Attacker, Vector *Defender)
+void TakeTurn(Vector *Attacker, Vector *Defender, int TurnCounter)
 {
-    static int TurnCounter = 1;
     RechargeShield(Attacker);
     for (int i = 0; i < vectorGetSize(Attacker); i++)
     {
-        if (vectorGetSize(Defender) == 0){
+        if (vectorGetSize(Defender) == 0)
+        {
             break;
         }
-        else{
+        else
+        {
             Attack(Attacker, Defender, i, TurnCounter);
         }
     }
-    TurnCounter++;
 }
