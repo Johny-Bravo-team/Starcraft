@@ -78,7 +78,7 @@ Terran_ship *ShipInitTerran(char shipLetter)
 
     if (shipLetter == 'v')
     { /*viking from Terran*/
-        shipPtr = AllocProttosShip();
+        shipPtr = AllocTerransShip();
         shipPtr->name = "Viking";
         shipPtr->health = VIKING_HEALTH;
         shipPtr->damage = VIKING_DAMAGE;
@@ -87,7 +87,7 @@ Terran_ship *ShipInitTerran(char shipLetter)
 
     if (shipLetter == 'b') /*BattleCruiser from Terran*/
     {
-        shipPtr = AllocProttosShip();
+        shipPtr = AllocTerransShip();
         shipPtr->name = "BattleCruser";
         shipPtr->health = BATTLE_CRUISER_HEALTH;
         shipPtr->damage = BATTLE_CRUISER_DAMAGE;
