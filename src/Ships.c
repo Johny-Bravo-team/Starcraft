@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "Defines.h"
 #include "Ships.h"
 #include "Vector.h"
@@ -51,7 +52,7 @@ Terran_ship *AllocTerransShip(void)
 Protoss_ship *ShipInitProtoss(char shipLetter)
 {
     Protoss_ship *shipPtr = NULL;
-    
+
     if (shipLetter == 'p')
     { /*phoenix protoss*/
         shipPtr = AllocProttosShip();
@@ -71,6 +72,7 @@ Protoss_ship *ShipInitProtoss(char shipLetter)
         shipPtr->damage = CARRIER_DAMAGE;
         return shipPtr;
     }
+    return NULL;
 }
 Terran_ship *ShipInitTerran(char shipLetter)
 {
@@ -93,6 +95,7 @@ Terran_ship *ShipInitTerran(char shipLetter)
         shipPtr->damage = BATTLE_CRUISER_DAMAGE;
         return shipPtr;
     }
+    return NULL;
 }
 
 int CalculateDamage(Vector *Attacker, Vector *Defender, int index, int turn)
@@ -102,9 +105,9 @@ int CalculateDamage(Vector *Attacker, Vector *Defender, int index, int turn)
     Attacking_Ship = vectorGet(Attacker, index);
     Defending_Ship = vectorBack(Defender);
 
-    if (Attacking_Ship->name == "Viking")
+    if (!strcmp((*Attacking_Ship).name, "Viking"))
     {
-        if (Defending_Ship->name == "Phoenix")
+        if (!strcmp((*Defending_Ship).name, "Phoenix"))
         {
             return (VIKING_DAMAGE * 2);
         }
@@ -114,7 +117,7 @@ int CalculateDamage(Vector *Attacker, Vector *Defender, int index, int turn)
         }
     };
 
-    if (Attacking_Ship->name == "BattleCruser")
+    if (!strcmp((*Attacking_Ship).name, "BattleCruser"))
     {
         if (turn % YAMATO_CANNON_LOADING_TURNS == 0)
         {
@@ -126,24 +129,25 @@ int CalculateDamage(Vector *Attacker, Vector *Defender, int index, int turn)
         }
     };
 
-    if (Attacking_Ship->name == "Phoenix")
+    if (!strcmp((*Attacking_Ship).name, "Phoenix"))
     {
         return (PHOENIX_DAMAGE);
     };
 
-    if (Attacking_Ship->name == "Carrier")
+    if (!strcmp((*Attacking_Ship).name, "Carrier"))
     {
         return (CARRIER_DAMAGE);
     };
+    return 0;
 }
 
 void RechargeShield(Vector *Defender)
 {
     Ship *Ship = vectorBack(Defender);
     if (!strcmp(Ship->name, "Phoenix"))
-    {   
+    {
         Ship->shield += PHOENIX_SHIELD_REGENERATE_RATE;
-        if(Ship->shield > PHOENIX_SHIELD)
+        if (Ship->shield > PHOENIX_SHIELD)
         {
             Ship->shield = PHOENIX_SHIELD;
         }
@@ -151,7 +155,7 @@ void RechargeShield(Vector *Defender)
     else if (!strcmp(Ship->name, "Carrier") && Ship->shield < CARRIER_SHIELD)
     {
         Ship->shield += CARRIER_SHIELD_REGENERATE_RATE;
-        if(Ship->shield > CARRIER_SHIELD)
+        if (Ship->shield > CARRIER_SHIELD)
         {
             Ship->shield = CARRIER_SHIELD;
         }

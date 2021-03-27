@@ -19,6 +19,6 @@ int main()
   //CalculateDamage(&battleField.terranFleet, &battleField.protossFleet, 1, 1);
   startBattle(&battleField);
   deinit(&battleField);
-
+  
   return EXIT_SUCCESS;
 }
