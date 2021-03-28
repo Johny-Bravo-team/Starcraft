@@ -62,6 +62,7 @@ Protoss_ship *ShipInitProtoss(char shipLetter){
 
     return NULL;
 }
+
 Terran_ship *ShipInitTerran(char shipLetter){
     Terran_ship *shipPtr = NULL;
 
@@ -85,8 +86,8 @@ Terran_ship *ShipInitTerran(char shipLetter){
 }
 
 int CalculateDamage(Vector *Attacker, Vector *Defender, int index, int turn){
-      Ship *Attacking_Ship = vectorGet(Attacker, index);
-      Ship *Defending_Ship = vectorBack(Defender);
+    Ship *Attacking_Ship = vectorGet(Attacker, index);
+    Ship *Defending_Ship = vectorBack(Defender);
 
     if (!strcmp(Attacking_Ship->name, "Viking")){
         if (!strcmp(Defending_Ship->name, "Phoenix")){

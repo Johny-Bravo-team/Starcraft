@@ -4,11 +4,8 @@
 #include "Vector.h"
 #include "Ships.h"
 
-
-short ProgressTurn(short TurnCounter);
-void RechargeShield(Vector *Defender);
-void ProtossTakeDamage(Ship *DefendingShip, int Damage);
-void TerranTakeDamage(Ship *DefendingShip, int Damage);
 void TakeTurn(Vector *Attacker, Vector *Defender, int TurnCounter);
+void RechargeShield(Vector *Defender);
+void Attack(Vector *Attacker, Vector *Defender, int index, int turn);
 
 #endif /*GAMETURN_H*/

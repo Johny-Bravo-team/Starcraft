@@ -5,8 +5,7 @@
 #include "BattleField.h"
 #include "Vector.h"
 
-int main()
-{
+int main(){
   const int initialCapacity = 1;
   const int buffSize = 50;
   char terranFleet[buffSize];
