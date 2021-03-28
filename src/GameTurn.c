@@ -10,7 +10,7 @@
 
 void TakeTurn(Vector *Attacker, Vector *Defender, int TurnCounter){
     RechargeShield(Attacker);
-    
+
     for (int i = 0; i < vectorGetSize(Attacker); i++){
         if (vectorGetSize(Defender) == 0){
             break;
