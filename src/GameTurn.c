@@ -21,3 +21,18 @@ void TakeTurn(Vector *Attacker, Vector *Defender, int TurnCounter){
     }
 }
 
+void RechargeShield(Vector *Defender){
+    Ship *shipPtr = vectorBack(Defender);
+    if (!strcmp(shipPtr->name, "Phoenix")){
+        shipPtr->shield += PHOENIX_SHIELD_REGENERATE_RATE;
+        if (shipPtr->shield > PHOENIX_SHIELD){
+            shipPtr->shield = PHOENIX_SHIELD;
+        }
+    }
+    else if (!strcmp(shipPtr->name, "Carrier")){
+        shipPtr->shield += CARRIER_SHIELD_REGENERATE_RATE;
+        if (shipPtr->shield > CARRIER_SHIELD){
+            shipPtr->shield = CARRIER_SHIELD;
+        }
+    }
+}

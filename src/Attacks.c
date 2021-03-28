@@ -7,6 +7,8 @@
 #include "Ships.h"
 #include "Vector.h"
 #include "Attacks.h"
+#include "CalculateDamage.h"
+#include "TakeDamage.h"
 
 void Attack(Vector *Attacker, Vector *Defender, int index, int turn){
     Ship *Attacking_Ship = vectorGet(Attacker, index);
@@ -24,7 +26,6 @@ void Attack(Vector *Attacker, Vector *Defender, int index, int turn){
     }
     
     if (Defending_Ship->health <= 0){
-        free(Defending_Ship);
         vectorDelete(Defender, vectorGetSize(Defender) - 1);
         printf("%s with ID: %d killed enemy airship with ID: %d\n", Attacking_Ship->name, index, vectorGetSize(Defender));
         return;
@@ -49,7 +50,7 @@ void CarrierAttack(Ship *Attacking_Ship, Ship *Defending_Ship, int index, Vector
     else if ((*Attacking_Ship).health < CARRIER_HEALTH){
         for (int i = 1; i <= DAMAGED_STATUS_INTERCEPTORS; i++){
             if (Defending_Ship->health <= 0){
-                free(Defending_Ship);
+                //free(Defending_Ship);
                 printf("%s with ID: %d killed enemy airship with ID: %d\n", Attacking_Ship->name, index, vectorGetSize(Defender) - 1);
                 vectorDelete(Defender, vectorGetSize(Defender) - 1);
                 if (vectorGetSize(Defender) == 0){

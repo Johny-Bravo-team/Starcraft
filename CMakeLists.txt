@@ -16,6 +16,7 @@ add_executable(
         ${INC_DIR}/Ships.h
         ${INC_DIR}/GameTurn.h
         ${INC_DIR}/Attacks.h
+        ${INC_DIR}/CalculateDamage.h
         
         ${SRC_DIR}/main.c
         ${SRC_DIR}/Vector.c
@@ -23,6 +24,7 @@ add_executable(
         ${SRC_DIR}/Ships.c
         ${SRC_DIR}/GameTurn.c
         ${SRC_DIR}/Attacks.c
+        ${SRC_DIR}/CalculateDamage.c
 )
 
 target_include_directories(
