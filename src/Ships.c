@@ -4,6 +4,7 @@
 #include "Defines.h"
 #include "Ships.h"
 #include "Vector.h"
+#include "StatusLog.h"
 
 /**
  * @brief Check for special abilities of ships based on enemy and defender and turn
@@ -19,10 +20,7 @@ Protoss_ship *AllocProttosShip(void){
     Protoss_ship *shipPtr = NULL;
     shipPtr = (Protoss_ship *)malloc(sizeof(Protoss_ship));
 
-    if (NULL == shipPtr){
-        printf("Allocation memory failed !\n");
-        exit(EXIT_FAILURE);
-    }
+    checkNoMemory((Ship*) shipPtr ,__func__, __LINE__, __FILE__);
 
     return shipPtr;
 }
@@ -31,10 +29,7 @@ Terran_ship *AllocTerransShip(void){
     Terran_ship *shipPtr = NULL;
     shipPtr = (Terran_ship *)malloc(sizeof(Terran_ship));
 
-    if (NULL == shipPtr){
-        printf("Allocation memory failed !\n");
-        exit(EXIT_FAILURE);
-    }
+    checkNoMemory((Ship*) shipPtr ,__func__, __LINE__, __FILE__);
 
     return shipPtr;
 }
@@ -48,45 +43,52 @@ Protoss_ship *ShipInitProtoss(char shipLetter){
         shipPtr->health = PHOENIX_HEALTH;
         shipPtr->shield = PHOENIX_SHIELD;
         shipPtr->damage = PHOENIX_DAMAGE;
-        return shipPtr;
-    }
 
-    if (shipLetter == 'c'){ /*carrier protoss*/
+    }
+    else if (shipLetter == 'c'){ /*carrier protoss*/
         shipPtr = AllocProttosShip();
         shipPtr->name = "Carrier";
         shipPtr->health = CARRIER_HEALTH;
         shipPtr->shield = CARRIER_SHIELD;
         shipPtr->damage = CARRIER_DAMAGE;
-        return shipPtr;
     }
-
-    return NULL;
+    else {
+        checkInput(__func__, __LINE__, __FILE__);
+    }
+    
+    return shipPtr;
 }
+
 Terran_ship *ShipInitTerran(char shipLetter){
+    
     Terran_ship *shipPtr = NULL;
 
-    if (shipLetter == 'v'){ 
+    if (shipLetter == 'v') { 
         shipPtr = AllocTerransShip();
         shipPtr->name = "Viking";
         shipPtr->health = VIKING_HEALTH;
         shipPtr->damage = VIKING_DAMAGE;
-        return shipPtr;
+        
     }
-
-    if (shipLetter == 'b'){ 
+    else if (shipLetter == 'b') { 
         shipPtr = AllocTerransShip();
         shipPtr->name = "BattleCruser";
         shipPtr->health = BATTLE_CRUISER_HEALTH;
         shipPtr->damage = BATTLE_CRUISER_DAMAGE;
-        return shipPtr;
+    }
+    else {
+        checkInput(__func__, __LINE__, __FILE__);
     }
 
-    return NULL;
+    return shipPtr;
 }
 
 int CalculateDamage(Vector *Attacker, Vector *Defender, int index, int turn){
-      Ship *Attacking_Ship = vectorGet(Attacker, index);
-      Ship *Defending_Ship = vectorBack(Defender);
+    Ship *Attacking_Ship = vectorGet(Attacker, index); //takes the element from the vector
+    Ship *Defending_Ship = vectorBack(Defender); //takes the last ship from the vector
+
+    checkNullObject(Attacking_Ship ,__func__, __LINE__, __FILE__);
+    checkNullObject(Defending_Ship ,__func__, __LINE__, __FILE__);
 
     if (!strcmp(Attacking_Ship->name, "Viking")){
         if (!strcmp(Defending_Ship->name, "Phoenix")){
@@ -119,6 +121,9 @@ int CalculateDamage(Vector *Attacker, Vector *Defender, int index, int turn){
 
 void RechargeShield(Vector *Defender){
     Ship *shipPtr = vectorBack(Defender);
+
+    checkNullObject(shipPtr ,__func__, __LINE__, __FILE__);
+
     if (!strcmp(shipPtr->name, "Phoenix")){
         shipPtr->shield += PHOENIX_SHIELD_REGENERATE_RATE;
         if (shipPtr->shield > PHOENIX_SHIELD){

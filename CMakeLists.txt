@@ -6,7 +6,7 @@ project(team_bravo_starcraft)
 
 set(INC_DIR ${CMAKE_CURRENT_SOURCE_DIR}/include)
 set(SRC_DIR ${CMAKE_CURRENT_SOURCE_DIR}/src)
-     
+
 #generate project binary
 add_executable(
     ${PROJECT_NAME}
@@ -15,12 +15,14 @@ add_executable(
         ${INC_DIR}/BattleField.h
         ${INC_DIR}/Ships.h
         ${INC_DIR}/GameTurn.h
+        ${INC_DIR}/StatusLog.h
         
         ${SRC_DIR}/main.c
         ${SRC_DIR}/Vector.c
         ${SRC_DIR}/BattleField.c
         ${SRC_DIR}/Ships.c
         ${SRC_DIR}/GameTurn.c
+        ${SRC_DIR}/StatusLog.c
 )
 
 target_include_directories(

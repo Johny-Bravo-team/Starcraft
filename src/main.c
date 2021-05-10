@@ -4,9 +4,11 @@
 #include <stdbool.h>
 #include "BattleField.h"
 #include "Vector.h"
+#include "StatusLog.h"
 
 int main()
 {
+  statusFileLoad();
   const int initialCapacity = 1;
   const int buffSize = 50;
   char terranFleet[buffSize];
@@ -15,9 +17,17 @@ int main()
 
   BattleField battleField;
   generateTerranFleet(&battleField, terranFleet, initialCapacity);
-  generateProtossFleet(&battleField, protossFleet, initialCapacity);
-  startBattle(&battleField);
-  deinit(&battleField);
+  statusLogger();
 
+  generateProtossFleet(&battleField, protossFleet, initialCapacity);
+  statusLogger();
+
+  startBattle(&battleField);
+  statusLogger();
+
+  deinit(&battleField);
+  statusLogger();
+
+  fclose(logFile_g);
   return EXIT_SUCCESS;
 }

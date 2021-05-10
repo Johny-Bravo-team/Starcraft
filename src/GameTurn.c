@@ -6,6 +6,7 @@
 #include "Ships.h"
 #include "Vector.h"
 #include <string.h>
+#include <StatusLog.h>
 
 /**
  * @brief Increments the turn counter and returns the current turn of the game
@@ -45,18 +46,22 @@ void TerranTakeDamage(Ship *DefendingShip, int Damage){
 }
 
 void Attack(Vector *Attacker, Vector *Defender, int index, int turn){
-    int Damage = 0;
+    int Damage = CalculateDamage(Attacker, Defender, index, turn);
     Ship *Attacking_Ship = vectorGet(Attacker, index);
     Ship *Defending_Ship = vectorBack(Defender);
-    Damage = CalculateDamage(Attacker, Defender, index, turn);
-    
-    if (!strcmp((*Attacking_Ship).name, "Carrier") && (*Attacking_Ship).health == CARRIER_HEALTH){
+
+    checkNullObject(Attacking_Ship ,__func__, __LINE__, __FILE__);
+    checkNullObject(Defending_Ship ,__func__, __LINE__, __FILE__);
+
+    if (!strcmp((*Attacking_Ship).name, "Carrier") && (*Attacking_Ship).health == CARRIER_HEALTH){//if carier is max healt attack whit 8 interseptors
         for (int i = 1; i <= MAX_INTERCEPTORS; i++) {
             if (Defending_Ship->health <= 0) {
                 free(Defending_Ship);
-                printf("%s with ID: %d killed enemy airship with ID: %d\n", Attacking_Ship->name, index, vectorGetSize(Defender) - 1);
+                printf("%s with ID: %d killed enemy airship with ID: %d\n", Attacking_Ship->name, index,
+                vectorGetSize(Defender) - 1);
+                
                 vectorDelete(Defender, vectorGetSize(Defender) - 1);
-                if (vectorGetSize(Defender) == 0){
+                if (vectorGetSize(Defender) == 0) {
                     return;
                 }
             }
@@ -68,7 +73,9 @@ void Attack(Vector *Attacker, Vector *Defender, int index, int turn){
         for (int i = 1; i <= DAMAGED_STATUS_INTERCEPTORS; i++) {
             if (Defending_Ship->health <= 0) {
                 free(Defending_Ship);
-                printf("%s with ID: %d killed enemy airship with ID: %d\n", Attacking_Ship->name, index, vectorGetSize(Defender) - 1);
+                printf("%s with ID: %d killed enemy airship with ID: %d\n", Attacking_Ship->name, index,
+                vectorGetSize(Defender) - 1);
+
                 vectorDelete(Defender, vectorGetSize(Defender) - 1);
                 if (vectorGetSize(Defender) == 0){
                     return;
@@ -93,13 +100,13 @@ void Attack(Vector *Attacker, Vector *Defender, int index, int turn){
     }
 }
 
-void TakeTurn(Vector *Attacker, Vector *Defender, int TurnCounter){
+void TakeTurn(Vector *Attacker, Vector *Defender, int TurnCounter) {
     RechargeShield(Attacker);
-    for (int i = 0; i < vectorGetSize(Attacker); i++){
+    for (int i = 0; i < vectorGetSize(Attacker); i++) {
         if (vectorGetSize(Defender) == 0){
             break;
         }
-        else{
+        else {
             Attack(Attacker, Defender, i, TurnCounter);
         }
     }

@@ -6,19 +6,20 @@
 #include "Vector.h"
 #include "Ships.h"
 #include "GameTurn.h"
+#include "StatusLog.h"
 
-void generateTerranFleet(BattleField *battleField, const char *terranFleetStr, int initialCapacity)
-{
+void generateTerranFleet(BattleField *battleField, const char *terranFleetStr, int initialCapacity) {
+  setLogVariables(__func__, __LINE__, __FILE__);
+  
   vectorInit(&battleField->terranFleet, initialCapacity);
-
   for (size_t i = 0; i < strlen(terranFleetStr); i++)
   {
     vectorPush(&battleField->terranFleet, ShipInitTerran(terranFleetStr[i]));
   }
 }
 
-void generateProtossFleet(BattleField *battleField, const char *protossFleetStr, int initialCapacity)
-{
+void generateProtossFleet(BattleField *battleField, const char *protossFleetStr, int initialCapacity) {
+ setLogVariables(__func__, __LINE__, __FILE__);
 
   vectorInit(&battleField->protossFleet, initialCapacity);
 
@@ -28,31 +29,34 @@ void generateProtossFleet(BattleField *battleField, const char *protossFleetStr,
   }
 }
 
-void startBattle(BattleField *battleField)
-{
+void startBattle(BattleField *battleField) {
+  setLogVariables(__func__, __LINE__, __FILE__);
   int TurnCounter = 1;
 
   while (true)
   {
     TakeTurn(&battleField->terranFleet, &battleField->protossFleet, TurnCounter);
-    Ship *Protoss = vectorBack(&battleField->protossFleet);
-
     if (vectorIsEmpty(&battleField->protossFleet))
     {
       printf("TERRAN has won!\n");
       break;
     }
+
+    Ship *Protoss = vectorBack(&battleField->protossFleet);
+    checkNullObject(Protoss ,__func__, __LINE__, __FILE__);
+
     printf("Last Protoss AirShip with ID: %d has %d health and %d shield left\n", vectorGetSize(&battleField->protossFleet) - 1, Protoss->health, Protoss->shield);
 
     TakeTurn(&battleField->protossFleet, &battleField->terranFleet, TurnCounter);
-    Ship *Terran = vectorBack(&battleField->terranFleet);
-
     if (vectorIsEmpty(&battleField->terranFleet))
     {
-
       printf("PROTOSS has won!\n");
       break;
     }
+
+    Ship *Terran = vectorBack(&battleField->terranFleet);
+    checkNullObject(Terran ,__func__, __LINE__, __FILE__);
+    
     printf("Last Terran AirShip with ID: %d has %d health left\n", vectorGetSize(&battleField->terranFleet) - 1, Terran->health);
 
     TurnCounter++;
@@ -60,6 +64,8 @@ void startBattle(BattleField *battleField)
 }
 
 void deinit(BattleField *battleField){
+  setLogVariables(__func__, __LINE__, __FILE__);
+
   while(vectorBack(&battleField->terranFleet)!=NULL){
     free(vectorBack(&battleField->terranFleet));
     vectorPop(&battleField->terranFleet);
