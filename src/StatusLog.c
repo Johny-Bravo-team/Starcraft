@@ -67,16 +67,3 @@ void wrongInput(const char *funcName, int lineNumber, char *fileName) {
     
     exit(EINVAL);
 }
-
-void battlefieldNoMemory(BattleField *battlefield, const char *funcName, int lineNumber, char *fileName) {
-    if (battlefield == NULL){
-        setLogVariables(funcName, lineNumber, fileName);
-
-        fprintf(logFile_g, "Function: %s at file %s, line %d - BattleField memory allocation failed!\n", functionName_g,
-        functionFile_g, functionLine_g);
-        
-        fclose(logFile_g);
-
-        exit(ENOMEM);
-    }
-}
