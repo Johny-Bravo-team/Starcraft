@@ -10,8 +10,11 @@
 
 void generateTerranFleet(BattleField *battleField, const char *terranFleetStr, int initialCapacity) {
   setLogVariables(__func__, __LINE__, __FILE__);
+  battleField->terranFleet.items = NULL;
   
   vectorInit(&battleField->terranFleet, initialCapacity);
+  checkNoMemory(battleField->terranFleet.items, __func__, __LINE__, __FILE__);
+
   for (size_t i = 0; i < strlen(terranFleetStr); i++)
   {
     vectorPush(&battleField->terranFleet, ShipInitTerran(terranFleetStr[i]));
@@ -19,9 +22,11 @@ void generateTerranFleet(BattleField *battleField, const char *terranFleetStr, i
 }
 
 void generateProtossFleet(BattleField *battleField, const char *protossFleetStr, int initialCapacity) {
- setLogVariables(__func__, __LINE__, __FILE__);
+  setLogVariables(__func__, __LINE__, __FILE__);
+  battleField->protossFleet.items = NULL;
 
   vectorInit(&battleField->protossFleet, initialCapacity);
+  checkNoMemory(battleField->terranFleet.items, __func__, __LINE__, __FILE__);
 
   for (size_t i = 0; i < strlen(protossFleetStr); i++)
   {

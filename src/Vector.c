@@ -175,6 +175,7 @@ void vectorFree(Vector *vec)
     vec->capacity = 0;
   }
 }
+
 void *vectorGetLast(Vector *vec)
 {
   return vec->items[vectorGetSize(vec) - 1];

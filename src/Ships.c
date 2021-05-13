@@ -20,7 +20,7 @@ Protoss_ship *AllocProttosShip(void){
     Protoss_ship *shipPtr = NULL;
     shipPtr = (Protoss_ship *)malloc(sizeof(Protoss_ship));
 
-    checkNoMemory((Ship*) shipPtr ,__func__, __LINE__, __FILE__);
+    checkNoMemory(shipPtr ,__func__, __LINE__, __FILE__);
 
     return shipPtr;
 }
@@ -29,7 +29,7 @@ Terran_ship *AllocTerransShip(void){
     Terran_ship *shipPtr = NULL;
     shipPtr = (Terran_ship *)malloc(sizeof(Terran_ship));
 
-    checkNoMemory((Ship*) shipPtr ,__func__, __LINE__, __FILE__);
+    checkNoMemory(shipPtr ,__func__, __LINE__, __FILE__);
 
     return shipPtr;
 }
@@ -53,7 +53,7 @@ Protoss_ship *ShipInitProtoss(char shipLetter){
         shipPtr->damage = CARRIER_DAMAGE;
     }
     else {
-        checkInput(__func__, __LINE__, __FILE__);
+        wrongInput(__func__, __LINE__, __FILE__);
     }
     
     return shipPtr;
@@ -77,7 +77,7 @@ Terran_ship *ShipInitTerran(char shipLetter){
         shipPtr->damage = BATTLE_CRUISER_DAMAGE;
     }
     else {
-        checkInput(__func__, __LINE__, __FILE__);
+        wrongInput(__func__, __LINE__, __FILE__);
     }
 
     return shipPtr;

@@ -1,5 +1,6 @@
 #include "StatusLog.h"
 #include "Ships.h"
+#include "BattleField.h"
 
 void statusFileLoad(void){
     functionName_g = NULL;
@@ -30,8 +31,8 @@ void statusLogger(void){
 }
 
 
-void checkNullObject(Ship *shipPtr ,const char *funcName, int lineNumber, char *fileName) {
-    if (shipPtr == NULL){
+void checkNullObject(void *obj, const char *funcName, int lineNumber, char *fileName) {
+    if (obj == NULL){
         setLogVariables(funcName, lineNumber, fileName);
         
         fprintf(logFile_g, "Function: %s at file %s, line %d - Vector returned NULL object!\n", functionName_g,
@@ -43,11 +44,9 @@ void checkNullObject(Ship *shipPtr ,const char *funcName, int lineNumber, char *
     }
 }
 
-void checkNoMemory(Ship *shipPtr ,const char *funcName, int lineNumber, char *fileName) {
-    if (NULL == shipPtr){
+void checkNoMemory(void *obj ,const char *funcName, int lineNumber, char *fileName) {
+    if (NULL == obj){
         setLogVariables(funcName, lineNumber, fileName);
-
-        printf("Protoss ship memory allocation failed !\n");
 
         fprintf(logFile_g, "Function: %s at file %s, line %d - memory allocation failed!\n", functionName_g,
         functionFile_g, functionLine_g);
@@ -58,7 +57,7 @@ void checkNoMemory(Ship *shipPtr ,const char *funcName, int lineNumber, char *fi
     }
 }
 
-void checkInput(const char *funcName, int lineNumber, char *fileName) {
+void wrongInput(const char *funcName, int lineNumber, char *fileName) {
     setLogVariables(funcName, lineNumber, fileName);
 
     fprintf(logFile_g, "Function: %s at file %s, line %d - Incorrect ship string input!\n", functionName_g,
@@ -67,4 +66,17 @@ void checkInput(const char *funcName, int lineNumber, char *fileName) {
     fclose(logFile_g);
     
     exit(EINVAL);
+}
+
+void battlefieldNoMemory(BattleField *battlefield, const char *funcName, int lineNumber, char *fileName) {
+    if (battlefield == NULL){
+        setLogVariables(funcName, lineNumber, fileName);
+
+        fprintf(logFile_g, "Function: %s at file %s, line %d - BattleField memory allocation failed!\n", functionName_g,
+        functionFile_g, functionLine_g);
+        
+        fclose(logFile_g);
+
+        exit(ENOMEM);
+    }
 }

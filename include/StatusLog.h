@@ -15,8 +15,8 @@ FILE* logFile_g;
 void statusFileLoad(void);
 void setLogVariables(const char *funcName, int lineNumber, char *fileName);
 void statusLogger(void);
-void checkNullObject(Ship *shipPtr ,const char *funcName, int lineNumber, char *fileName);
-void checkNoMemory(Ship *shipPtr ,const char *funcName, int lineNumber, char *fileName);
-void checkInput(const char *funcName, int lineNumber, char *fileName);
+void checkNullObject(void *obj ,const char *funcName, int lineNumber, char *fileName);
+void checkNoMemory(void *obj ,const char *funcName, int lineNumber, char *fileName);
+void wrongInput(const char *funcName, int lineNumber, char *fileName);
 
 #endif /* STATUSLOG_H */
